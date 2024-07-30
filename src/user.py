@@ -1,1 +1,1 @@
-user = [{"name": "ABRAHAM", "password": "STUDIOA2025"}]
+user = [{"name": "ABRAHAM", "password": "STUDIOA2025_STUDIOA_VERSION"}]
