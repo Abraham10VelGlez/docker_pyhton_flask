@@ -8,10 +8,19 @@ app = Flask(__name__)
 def ping():
     return jsonify({"response": "SERVER PYTHON API REST ABRAHAM USER AAA STUDIOA AAA"})
 
-
 @app.route("/users")
 def usershandler():
     return jsonify({"user": user})
+
+#json para version
+@app.route("/boy")
+def userprueba():
+    return jsonify({"user": user, "variablespython": "a + b = ab" })
+
+#json para version
+@app.route("/version")
+def userversion():
+    return jsonify({"user": user, "versionx": "Beta 1.1.1.0" })
 
 #ruta por default
 @app.route("/")
