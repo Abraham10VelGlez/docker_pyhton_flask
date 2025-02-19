@@ -15,4 +15,4 @@ EXPOSE 5000
 CMD ["python", "src/app.py"]
 
 #docker build -t flaskpython .
-#docker run -it -p 3000:3000 flaskpython
+#docker run -it -p 5000:5000 flaskpython

@@ -6,12 +6,17 @@ app = Flask(__name__)
 # Routes
 @app.route("/python", methods=["GET"])
 def ping():
-    return jsonify({"response": "SERVER PYTHON API REST ABRAHAM USER AAA STUDIOA"})
+    return jsonify({"response": "SERVER PYTHON API REST ABRAHAM USER AAA STUDIOA AAA"})
 
 
 @app.route("/users")
 def usershandler():
     return jsonify({"user": user})
+
+#ruta por default
+@app.route("/")
+def defaview():
+    return "bienvenidos al SERVER PYTHON API + FLASK "
 
 # Start the Server
 if __name__ == "__main__":
