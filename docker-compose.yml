@@ -1,10 +1,10 @@
-version: '1_apirest'
+version: 'serverconnection'
 
 services:
   flaskapp:
     build: .
     ports:
-      - "5000:5000"
+      - "3000:3000"
     volumes:
       - .:/app
     environment:

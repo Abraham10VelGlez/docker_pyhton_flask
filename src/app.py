@@ -1,32 +1,31 @@
 from flask import Flask, jsonify
-from user import user
+from config import Config
+from flask_cors import CORS
+from flask_jwt_extended import JWTManager
+from routes import register_routex
 
 app = Flask(__name__)
+app.config.from_object(Config)
+# PERMITE PETICIONES DESDE EL FRONT
+# CORS(app, origins="http://localhost:5175", supports_credentials=True) -------------- viteapp conexion docker 5175
+CORS(
+    app, origins="http://localhost:5173", supports_credentials=True
+)  # ---------- para la app de quantum 5173
 
-# Routes
-@app.route("/python", methods=["GET"])
-def ping():
-    return jsonify({"response": "SERVER PYTHON API REST ABRAHAM USER AAA STUDIOA AAA"})
+# # Permitir múltiples orígenes (local + Railway)
+# CORS(
+#     app,
+#     origins=[
+#         "http://localhost:5173",  # Vite local
+#         "https://chico-python-flask10.up.railway.app"  # producción
+#     ],
+#     supports_credentials=True
+# )
 
-@app.route("/users")
-def usershandler():
-    return jsonify({"user": user})
-
-#json para version
-@app.route("/boy")
-def userprueba():
-    return jsonify({"user": user, "variablespython": "a + b = ab" })
-
-#json para version
-@app.route("/version")
-def userversion():
-    return jsonify({"user": user, "versionx": "Beta 1.1.1.0" })
-
-#ruta por default
-@app.route("/")
-def defaview():
-    return "bienvenidos al SERVER PYTHON API + FLASK "
+jwt = JWTManager(app)
+# funcion de rutas para funcion inicial del API REST
+register_routex(app)
 
 # Start the Server
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=3000, debug=True)
