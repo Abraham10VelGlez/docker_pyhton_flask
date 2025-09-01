@@ -28,7 +28,7 @@ jwt = JWTManager(app)
 register_routex(app)
 
 # Start the Server
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 3000))  # toma el puerto de Railway, si no existe usa 3000
-    app.run(host="0.0.0.0", port=port, debug=True)
+# if __name__ == "__main__":
+    # port = int(os.environ.get("PORT", 3000))  # toma el puerto de Railway, si no existe usa 3000
+    # app.run(host="0.0.0.0", port=port, debug=True)
     
